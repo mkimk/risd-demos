@@ -9,7 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // 1. toggle items — comment out each line and see what happens on the page!
       divs.forEach(function(div) {
-        div.style.display = (div.style.display === 'none' ? '' : 'none');
+        if (div.style.display === 'none') {
+          // If the div is currently hidden:
+          div.style.display = '';  // Show it by resetting to default
+        } else {
+          // Otherwise, if it's currently visible:
+          div.style.display = 'none';  // Hide it
+        }
       });
 
       // group1.forEach(function(el) {
