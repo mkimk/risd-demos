@@ -124,8 +124,22 @@ JSON can be easily builky and complex to load a length of data. In this case, JS
 }
 ```
 
+
+
 #### Preload
-Load the JSON file first, wait for it to finish loading, and then use the data.
+Load the JSON file first, wait until it finishes loading, and then use the data in your JavaScript.
+
+⚠️ Because this method uses fetch(), you need to run your project on a local server when testing in your browser. In the tutorial video, I used Python in Terminal:
+```
+python3 -m http.server
+```
+
+Then open your project at:
+```
+http://localhost:8000
+```
+
+You can also use other local server tools such as Live Server or MAMP.
 
 ```js
 let color;
@@ -136,7 +150,7 @@ async function loadData() {
 
   const box = document.getElementById("box");
   const label = document.getElementById("label");
-
+  
   box.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
   label.textContent = color.name;
 }
