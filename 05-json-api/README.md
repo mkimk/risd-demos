@@ -233,7 +233,6 @@ Based on the query string, we can divide the api url into static url and variabl
   <div id="output" class="card"></div>
   ```
 
-Check P5.js version for reference
 
 
 
