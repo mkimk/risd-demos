@@ -235,8 +235,7 @@ Based on the query string, we can divide the api url into static url and variabl
 
 Check P5.js version for reference
 
-## Other resources
-- [Coding Train: 10: Working with Data](https://www.youtube.com/watch?v=rJaXOFfwGVw&list=PLRqwX-V7Uu6a-SQiI4RtIwuOrLJGnel0r&index=1)
+
 
 
 
