@@ -196,7 +196,7 @@ Based on the query string, we can divide the api url into static url and variabl
   async function getWeather() {
       let city = document.getElementById("cityInput").value;
 
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1434b5cbdf383d0400571c957b7dd29d&units=metric`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=[yourAPIKey]d&units=metric`;
 
       try {
         let res = await fetch(url);
