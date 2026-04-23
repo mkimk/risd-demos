@@ -149,7 +149,7 @@ python3 -m http.server
 http://localhost:8000
 ```
 
-You can also use other local server tools such as Live Server or MAMP.
+To stop the server, press `Control` + `C` in Terminal. You can also use other local server tools such as Live Server or MAMP. 
 
 ```js
 let color;
