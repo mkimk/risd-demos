@@ -28,7 +28,6 @@ There are a few data formats that are standardized for computer to read.
 - *eXtensible Markup Language*
 - markup language without no predefined tags.
 - simple text-based format for representing structured information: documents, data, configuration, books, transactions, invoices, and much more
-- More read 👉[Mozilla: XML introduction](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction)
 
 ### Other filetype 
 - text file, PDF, etc
