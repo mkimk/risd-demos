@@ -194,36 +194,48 @@ Based on the query string, we can divide the api url into static url and variabl
 
 ```js
   async function getWeather() {
-      let city = document.getElementById("cityInput").value;
+  // Get the value typed into the input field (city name)
+  let city = document.getElementById("cityInput").value;
 
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=[yourAPIKey]d&units=metric`;
+  // Build the API request URL using the city and your API key
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=[YOUR_API_KEY]&units=metric`;
 
-      try {
-        let res = await fetch(url);
-        let data = await res.json();
+  try {
+    // Send request to the API and wait for the response
+    let res = await fetch(url);
 
-        if (data.cod !== 200) {
-          document.getElementById("output").innerHTML = "City not found";
-          return;
-        }
+    // Convert the response into a JavaScript object (JSON)
+    let data = await res.json();
 
-        let temp = data.main.temp;
-        let description = data.weather[0].description;
-
-        // simple visual mapping
-        let size = 20 + temp * 2;
-
-        document.getElementById("output").innerHTML = `
-          <h2>${data.name}</h2>
-          <p style="font-size:${size}px">${temp.toFixed(1)}°C</p>
-          <p>${description}</p>
-        `;
-
-      } catch (err) {
-        document.getElementById("output").innerHTML = "Error loading data";
-        console.error(err);
-      }
+    // Check if the API returned an error (e.g., city not found)
+    if (data.cod !== 200) {
+      document.getElementById("output").innerHTML = "City not found";
+      return; // stop the function early
     }
+
+    // Extract specific values from the data using dot notation
+    let temp = data.main.temp;
+    let description = data.weather[0].description;
+
+    // Map temperature to a visual property (font size)
+    let size = 20 + temp * 2;
+
+    // Display the result in the HTML
+    // Template string (${ }) inserts values into the content
+    document.getElementById("output").innerHTML = `
+      <h2>${data.name}</h2>
+      <p style="font-size:${size}px">${temp.toFixed(1)}°C</p>
+      <p>${description}</p>
+    `;
+
+  } catch (err) {
+    // If something goes wrong (network error, etc.)
+    document.getElementById("output").innerHTML = "Error loading data";
+
+    // Log the actual error in the console for debugging
+    console.error(err);
+  }
+}
 ```
 ```html 
 
