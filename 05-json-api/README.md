@@ -154,7 +154,9 @@ To stop the server, press `Control` + `C` in Terminal. You can also use other lo
 let color;
 
 async function loadData() {
+  // Send request to the API and wait for the response
   const response = await fetch('./common/color.json');
+  // Convert the response into a JavaScript object (JSON)
   color = await response.json();
 
   const box = document.getElementById("box");
@@ -216,21 +218,15 @@ Based on the query string, we can divide the api url into static url and variabl
 
 ```js
   async function getWeather() {
-  // Get the value typed into the input field (city name)
-  let city = document.getElementById("cityInput").value;
 
-  // Build the API request URL using the city and your API key
+  let city = document.getElementById("cityInput").value;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=[YOUR_API_KEY]&units=metric`;
 
   try {
-    // Send request to the API and wait for the response
     let res = await fetch(url);
-
-    // Convert the response into a JavaScript object (JSON)
     let data = await res.json();
 
-    // Check if the API returned an error (e.g., city not found)
-    if (data.cod !== 200) {
+    if (data.cod !== 200) {    // Check if the API returned an error 
       document.getElementById("output").innerHTML = "City not found";
       return; // stop the function early
     }
@@ -250,8 +246,7 @@ Based on the query string, we can divide the api url into static url and variabl
       <p>${description}</p>
     `;
 
-  } catch (err) {
-    // If something goes wrong (network error, etc.)
+  } catch (err) { // If something goes wrong (network error, etc.)
     document.getElementById("output").innerHTML = "Error loading data";
 
     // Log the actual error in the console for debugging
