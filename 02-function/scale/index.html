@@ -52,23 +52,22 @@
       function render() {
           box.style.width  = sizePx + 'px';
           box.style.height = sizePx + 'px';
-          box.style.backgroundColor = `rgb(50, 100, ${blue})`; 
+          box.textContent = sizePx + 'px';
       }
 
       inc.addEventListener('click', () => {
           sizePx = changeValue(sizePx, +step, 60, 320);
-          blue   = changeValue(blue, +step, 0, 255);
           render();
         });
 
       dec.addEventListener('click', () => {
         sizePx = changeValue(sizePx, -step, 60, 320);
-        blue   = changeValue(blue, -step, 0, 255);
         render();
       });
+
+      
       reset.addEventListener('click', () => {
         sizePx = 100;
-        blue   = 200;
         render();
       });
 
